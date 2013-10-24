@@ -79,13 +79,15 @@ function createRecord() {
     );
 }
 
-function deleteRecord(id) {
+function deleteRecord(name, id) {
 
-    df.apis.salesforce.deleteRecords({"table_name":"Account", "ids":id},
-    function (response) {
-        getRecords();
-    }, crudError
-    );
+    if (confirm("Delete the account '" + name + "'?")) {
+        df.apis.salesforce.deleteRecords({"table_name":"Account", "ids":id},
+            function (response) {
+                getRecords();
+            }, crudError
+        );
+    }
 }
 
 // ui
@@ -99,7 +101,7 @@ function buildItemList(json) {
             var name = entry.Name;
             var id = entry.Id;
             html += '<tr>';
-            html += '<td><a><i class="icon icon-minus-sign" data-id="' + id + '"></i></a></td>';
+            html += '<td><a><i class="icon icon-minus-sign" data-id="' + id + '" data-name="' + name + '"></i></a></td>';
             if (entry.complete === true) {
                 html += '<td style="width:100%" class="item strike" data-id="' + id + '">' + name + '</td>';
             } else {
@@ -110,8 +112,9 @@ function buildItemList(json) {
     }
     $('table').html(html);
     $('#list-container i').click(function (e) {
+        var name = $(this).data('name');
         var id = $(this).data('id');
-        deleteRecord(id);
+        deleteRecord(name, id);
     });
 }
 
