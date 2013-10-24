@@ -1,0 +1,8 @@
+{
+	"api_name":"salesforcesvc",
+	"name":"Salesforce Service",
+	"description":"A sample app showing how to call a Salesforce service from your DSP.",
+	"is_active":1,
+	"url":"/index.html",
+	"is_url_external":0
+}
