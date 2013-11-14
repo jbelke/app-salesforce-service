@@ -1,5 +1,5 @@
-app-salesforce-svc
-==================
+app-salesforce-service
+======================
 
 This app uses a salesforce DSP service to pull the 5 newest accounts using the salesforce REST API. To try out this app on your own DSP you can import the file salesforcesvc.dfpkg directly into your DSP by going to the Apps tab in the admin console and clicking the "Import New App" button in the upper right. Select salesforcesvc.dfpkg in the file picker then click the Import button to import into your DSP.
 
